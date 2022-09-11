@@ -1,1 +1,1 @@
-simple tasks in C-programming language
+simple scripting tasks with C-programming language
