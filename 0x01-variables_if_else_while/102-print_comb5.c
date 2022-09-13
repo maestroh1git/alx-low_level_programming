@@ -1,35 +1,41 @@
-#include<stdio.h>
-
+#include <stdio.h>
 /**
- * main - prints all combination of 2 digit numbers
- *
- * Return: Always (success)
+ * *main - main block
+ * *Description: Print all possible combinations of two two-digit numbers.
+ * *Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	int i, j;
+	int a, b, c, d;
 
-	for (i = 0; i <= 99; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (j = 0; j <= 99; j++)
+		a = i / 10; /* doubles fnum */
+		b = i % 10; /* singles fnum */
+
+		for (j = 0; j < 100; j++)
 		{
-			if (i < j && i != j)
+			c = j / 10; /* doubles snum */
+			d = j % 10; /* singles snum */
+
+			if (a < c || (a == c && b < d))
 			{
-				putchar((i / 10) + '0');
-				putchar((i % 10) + '0');
-				putchar(' ');
-				putchar((j / 10) + '0');
-				putchar((j % 10) + '0');
-				if (i != 99 || j != 99)
+				putchar(a + '0');
+				putchar(b + '0');
+				putchar(32);
+				putchar(c + '0');
+				putchar(d + '0');
+
+				if (!(a == 9 && b == 8))
 				{
-					putchar(',');
-					putchar(' ');
+					putchar(44);
+					putchar(32);
 				}
 			}
 		}
 	}
-	putchar('\n');
+	putchar(10);
 
-return (0);
+	return (0);
 }
